@@ -9,6 +9,7 @@ interface ModalProps {
     className?: string;
     isOpen?: boolean;
     onClose: () => void;
+    lazy?: boolean
 }
 
 export const Modal: FC<ModalProps> = ({
@@ -16,8 +17,10 @@ export const Modal: FC<ModalProps> = ({
     children,
     onClose,
     isOpen,
+    lazy,
 }) => {
     const [isClosing, setIsClosing] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
     const timerRef = useRef<ReturnType <typeof setTimeout>>();
 
     const closeModal = useCallback(() => {
@@ -33,6 +36,12 @@ export const Modal: FC<ModalProps> = ({
             closeModal();
         }
     }, [closeModal]);
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+        }
+    }, [isOpen]);
 
     useEffect(() => {
         if (isOpen) {
@@ -53,6 +62,10 @@ export const Modal: FC<ModalProps> = ({
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
     };
+
+    if (lazy && !isMounted) {
+        return null;
+    }
 
     return (
         <Portal>

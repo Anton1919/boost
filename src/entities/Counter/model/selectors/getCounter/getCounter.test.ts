@@ -3,7 +3,10 @@ import { getCounter } from './getCounter';
 
 describe('get counter', () => {
     test('get counter state', () => {
-        const state: StateSchema = { counter: { value: 10 } };
+        const state: StateSchema = {
+            user: {},
+            counter: { value: 10 },
+        };
 
         expect(getCounter(state)).toEqual({ value: 10 });
     });
