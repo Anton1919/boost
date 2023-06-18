@@ -6,6 +6,9 @@ describe('get counter', () => {
         const state: StateSchema = {
             user: {},
             counter: { value: 10 },
+            loginForm: {
+                password: '', username: '', error: '', isLoading: false,
+            },
         };
 
         expect(getCounter(state)).toEqual({ value: 10 });
