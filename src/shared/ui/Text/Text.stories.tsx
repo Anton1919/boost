@@ -16,40 +16,42 @@ const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-    title: 'TITLE AFG1',
-    text: 'aaq1414c',
+    title: 'Title lorem ipsun',
+    text: 'Description Description Description Description',
 };
+
 export const Error = Template.bind({});
 Error.args = {
-    title: 'TITLE AFG1',
-    text: 'aaq1414c',
+    title: 'Title lorem ipsun',
+    text: 'Description Description Description Description',
     theme: TextTheme.ERROR,
 };
 
 export const onlyTitle = Template.bind({});
 onlyTitle.args = {
-    title: 'TITLE AFG1',
+    title: 'Title lorem ipsun',
 };
 
 export const onlyText = Template.bind({});
 onlyText.args = {
-    text: 'aaq1414c',
+    text: 'Description Description Description Description',
 };
+
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
-    title: 'TITLE AFG1',
-    text: 'aaq1414c',
+    title: 'Title lorem ipsun',
+    text: 'Description Description Description Description',
 };
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const onlyTitleDark = Template.bind({});
 onlyTitleDark.args = {
-    title: 'TITLE AFG1',
+    title: 'Title lorem ipsun',
 };
 onlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const onlyTexDark = Template.bind({});
-onlyTexDark.args = {
-    text: 'aaq1414c',
+export const onlyTextDark = Template.bind({});
+onlyTextDark.args = {
+    text: 'Description Description Description Description',
 };
-onlyTexDark.decorators = [ThemeDecorator(Theme.DARK)];
+onlyTextDark.decorators = [ThemeDecorator(Theme.DARK)];

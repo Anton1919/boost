@@ -1,55 +1,25 @@
 {
-  "  Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
-    " \n                Exercitationem, ipsum": {
-      "\n                Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
-        " \n                Exercitationem, ipsum": {
-          "\n                Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
-            " \n                Exercitationem, ipsum": {
-              "": ""
-            }
-          }
-        }
-      }
+  "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
+    " Aliquid commodi consequatur eligendi impedit incidunt necessitatibus possimus quis saepe sunt totam": {
+      "": ""
     }
   },
-  " Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
-    " Accusamus, dicta\n                    impedit inventore perspiciatis praesentium repellendus rerum tempore": {
-      " Doloribus, earum mollitia?": " Doloribus, earum mollitia?"
-    },
-    " Accusamus, dicta\nimpedit inventore perspiciatis praesentium repellendus rerum tempore": {
-      " Doloribus, earum mollitia?": " Doloribus, earum mollitia?"
-    },
-    " Accusamus, dicta impedit inventore perspiciatis praesentium repellendus rerum tempore": {
-      " Doloribus, earum mollitia?": " Doloribus, earum mollitia?"
-    },
-    " Exercitationem, ipsum": {
-      "\n                Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
-        " Exercitationem, ipsum": {
-          "\n                Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
-            " Exercitationem, ipsum": {
-              "": ""
-            }
-          }
-        }
-      }
-    }
-  },
+  "decrement": "decrement",
+  "increment": "increment",
   "throw error": "throw error",
-  "Введите password": "Введите password",
-  "Введите username": "Enter a username",
+  "Введите username": "Введите username",
+  "Введите пароль": "Введите пароль",
   "Войти": "Войти",
-  "Выйти": "Выйти",
+  "Вы ввели неверный логин или пароль": "",
+  "Выйти": "",
   "Главная": "Главная",
   "Главная страница": "Главная страница",
-  "Значение =": "Value =",
   "О сайте": "О сайте",
   "О сайте123123": "О сайте123123",
   "Обновить страницу": "Обновить страницу",
   "Переключить": "Переключить",
   "Произошла непредвиденная ошибка": "Произошла непредвиденная ошибка",
   "Страница не найдена": "Страница не найдена",
-  "Увеличить": "Increment",
-  "Уменьшить": "Decrement",
-  "Форма авторизации": "Форма авторизации",
+  "Форма авторизации": "",
   "Язык": "Язык"
 }
