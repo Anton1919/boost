@@ -25,5 +25,13 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "first": "Anton",
+    "lastname": "Ponomarev",
+    "age": 27,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Krasnodar",
+    "username": "admin"
+  }
 }
