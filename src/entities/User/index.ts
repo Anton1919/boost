@@ -1,6 +1,9 @@
 export {
     getUserAuthData,
 } from './model/selectors/getUserAuthData/getUserAuthData';
+export {
+    getAuthInited,
+} from './model/selectors/getAuthInited/getAuthInited';
 
 export {
     userReducer,
