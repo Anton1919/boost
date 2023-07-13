@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -100,6 +102,24 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "first commet",
+      "id": "5RyAHx1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "second commet",
+      "id": "2Q4ixAJ"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "user commnet",
+      "id": "XSC81Kf"
     }
   ],
   "users": [
@@ -109,7 +129,6 @@
       "password": "123",
       "role": "ADMIN",
       "avatar": "https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/2EP14mWkbx9sq03nWnRSGT/f1d22d88bb5dde030275f9520c0f2e92/React_YT_Thumbnail.png"
-
     },
     {
       "id": "2",
@@ -117,17 +136,30 @@
       "password": "123",
       "role": "USER",
       "avatar": "https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/2EP14mWkbx9sq03nWnRSGT/f1d22d88bb5dde030275f9520c0f2e92/React_YT_Thumbnail.png"
-
     }
   ],
-  "profile": {
-    "first": "jgh",
-    "lastname": "asf",
-    "age": 465,
-    "currency": "RUB",
-    "country": "Belarus",
-    "city": "Moscow",
-    "username": "admin213",
-    "avatar": "https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Admin",
+      "lastname": "Admin",
+      "age": 45,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Moscow",
+      "username": "admin213",
+      "avatar": "https://yt3.ggpht.com/ytc/AAUvwngFzM_Rf6MNwOnFcuphoj93k7VFjlIrj-kSMxbh=s900-c-k-c0x00ffffff-no-rj"
+    },
+    {
+      "id": "2",
+      "first": "Anton",
+      "lastname": "Anton",
+      "age": 27,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Moscow",
+      "username": "Anton",
+      "avatar": "https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/2EP14mWkbx9sq03nWnRSGT/f1d22d88bb5dde030275f9520c0f2e92/React_YT_Thumbnail.png"
+    }
+  ]
 }

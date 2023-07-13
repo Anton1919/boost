@@ -11,6 +11,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import {
     fetchCommentsByArticleId,
 } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { AddCommentForm } from 'features/addCommentForm';
 import {
     getArticleCommentsError,
     getArticleCommentsIsLoading,
@@ -51,6 +52,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
             <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
                 <ArticleDetails id={id} />
                 <Text className={cls.commentTitle} title={t('Комментарии')} />
+                <AddCommentForm />
                 <CommentList isLoading={commentsIsLoading} comments={comments} />
             </div>
         </DynamicModuleLoader>
