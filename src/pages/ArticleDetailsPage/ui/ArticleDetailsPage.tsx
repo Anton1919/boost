@@ -11,7 +11,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { AddCommentForm } from 'features/addCommentForm';
 import {
     addCommentForArticle,
-} from 'pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle';
+} from '../model/services/addCommentForArticle/addCommentForArticle';
 import {
     fetchCommentsByArticleId,
 } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
