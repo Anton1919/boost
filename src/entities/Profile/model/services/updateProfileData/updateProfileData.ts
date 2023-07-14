@@ -10,7 +10,7 @@ export const updateProfileData = createAsyncThunk<
     ThunkConfig<ValidateProfileError[]>
     >(
         'profile/updateProfileData',
-        async (_, thunkApi) => {
+        async (profileId, thunkApi) => {
             const { extra, rejectWithValue, getState } = thunkApi;
 
             const formData = getProfileForm(getState());
@@ -22,7 +22,7 @@ export const updateProfileData = createAsyncThunk<
             }
 
             try {
-                const response = await extra.api.put<Profile>('/profile', formData);
+                const response = await extra.api.put<Profile>(`/profile/${formData?.id}`, formData);
 
                 return response.data;
             } catch (e) {
