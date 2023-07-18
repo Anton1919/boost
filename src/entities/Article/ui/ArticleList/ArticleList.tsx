@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleListItem } from 'entities/Article/ui/ArticleListItem/ArticleListItem';
 import { useTranslation } from 'react-i18next';
-import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
+import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
+import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { Article, ArticleView } from '../../model/types/article';
 import cls from './ArticleList.module.scss';
 
