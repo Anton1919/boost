@@ -8,7 +8,7 @@ import {
 } from '../../model/selectors/articlesPageSelectors';
 
 export const fetchNextArticlesPage = createAsyncThunk<void, void, ThunkConfig<string>>(
-    'articleDetailsPage/fetchNextArticlesPage',
+    'articlesPage/fetchNextArticlesPage',
     async (_, thunkApi) => {
         const { getState, dispatch } = thunkApi;
         const hasMore = getArticlesPageHasMore(getState());
