@@ -1,16 +1,17 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
-import { ArticleList, ArticleView, ArticleViewSelector } from 'entities/Article';
+import { ArticleList } from 'entities/Article';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Page } from 'widgets/Page/Page';
 import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage';
-import { useLocation } from 'react-router-dom';
+import { ArticlePageFilters } from 'pages/ArticlePageFilters/ArticlePageFilters';
+import { useSearchParams } from 'react-router-dom';
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage';
 import { getArticlesPageIsLoading, getArticlesPageView } from '../model/selectors/articlesPageSelectors';
-import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slice/articlePageSlice';
+import { articlesPageReducer, getArticles } from '../model/slice/articlePageSlice';
 import cls from './ArticlePage.module.scss';
 
 interface ArticlePageProps {
@@ -26,24 +27,22 @@ const ArticlePage = ({ className }: ArticlePageProps) => {
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(getArticlesPageIsLoading);
     const view = useSelector(getArticlesPageView);
+    const [searchParams] = useSearchParams();
 
-    const omLoadNextPage = useCallback(() => {
+    const onLoadNextPage = useCallback(() => {
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(initArticlesPage());
+        dispatch(initArticlesPage(searchParams));
     });
-
-    const onChangeView = useCallback((view: ArticleView) => {
-        dispatch(articlesPageActions.setView(view));
-    }, [dispatch]);
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <Page className={classNames(cls.ArticlePage, {}, [className])} onScrollEnd={omLoadNextPage}>
-                <ArticleViewSelector view={view} onViewClick={onChangeView} />
+            <Page className={classNames(cls.ArticlePage, {}, [className])} onScrollEnd={onLoadNextPage}>
+                <ArticlePageFilters />
                 <ArticleList
+                    className={cls.list}
                     isLoading={isLoading}
                     view={view}
                     articles={articles}
