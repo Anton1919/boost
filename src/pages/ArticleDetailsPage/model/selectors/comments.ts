@@ -1,4 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 
-export const getArticleCommentsIsLoading = (state: StateSchema) => state.articleDetailsComments?.isLoading;
-export const getArticleCommentsError = (state: StateSchema) => state.articleDetailsComments?.error;
+// eslint-disable-next-line
+export const getArticleCommentsIsLoading = (state: StateSchema) => state.articleDetailsPage?.comments.isLoading;
+export const getArticleCommentsError = (state: StateSchema) => state.articleDetailsPage?.comments.error;

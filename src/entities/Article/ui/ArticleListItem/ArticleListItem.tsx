@@ -6,9 +6,9 @@ import { Card } from 'shared/ui/Card/Card';
 import { useHover } from 'shared/lib/hooks/useHover/useHover';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { HTMLAttributeAnchorTarget } from 'react';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
 import {
@@ -19,16 +19,14 @@ interface ArticleListItemProps {
     className?: string
     article: Article
     view: ArticleView
+    target?: HTMLAttributeAnchorTarget
 }
 
 export const ArticleListItem = (props : ArticleListItemProps) => {
-    const { view, article, className } = props;
+    const {
+        view, article, className, target,
+    } = props;
     const [isHover, bindHover] = useHover();
-    const navigate = useNavigate();
-
-    const onOpenArticle = useCallback(() => {
-        navigate(RoutePath.article_details + article.id);
-    }, [article.id, navigate]);
 
     if (view === ArticleView.BIG) {
         const textBlock = article.blocks
@@ -47,10 +45,13 @@ export const ArticleListItem = (props : ArticleListItemProps) => {
                     <img src={article.img} alt={article.title} className={cls.img} />
                     {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />}
                     <div className={cls.footer}>
+                        <AppLink target={target} to={RoutePath.article_details + article.id}>
+                            {/* eslint-disable-next-line i18next/no-literal-string */}
+                            <Button theme={ButtonTheme.OUTLINE}>
+                                Читать далее...
+                            </Button>
+                        </AppLink>
                         {/* eslint-disable-next-line i18next/no-literal-string */}
-                        <Button theme={ButtonTheme.OUTLINE} onClick={onOpenArticle}>
-                            Читать далее...
-                        </Button>
                         <Text className={cls.views} text={article.views.toString()} />
                         <Icon Svg={EyeIcon} />
                     </div>
@@ -60,8 +61,13 @@ export const ArticleListItem = (props : ArticleListItemProps) => {
     }
 
     return (
-        <div {...bindHover} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-            <Card onClick={onOpenArticle}>
+        <AppLink
+            target={target}
+            to={RoutePath.article_details + article.id}
+            {...bindHover}
+            className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+        >
+            <Card>
                 <div className={cls.imageWrapper}>
                     <img className={cls.img} src={article.img} alt={article.title} />
                     <Text className={cls.date} text={article.createdAt} />
@@ -73,6 +79,6 @@ export const ArticleListItem = (props : ArticleListItemProps) => {
                 </div>
                 <Text className={cls.title} text={article.title} />
             </Card>
-        </div>
+        </AppLink>
     );
 };
