@@ -14,15 +14,15 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page/Page';
 import {
     getArticleRecommendations,
-} from 'pages/ArticleDetailsPage/model/slice/articleDetailsPageRecommendationsSlice';
-import { getArticleRecommendationIsLoading } from 'pages/ArticleDetailsPage/model/selectors/recommendation';
+} from '../model/slice/articleDetailsPageRecommendationsSlice';
+import { getArticleRecommendationIsLoading } from '../model/selectors/recommendation';
 import {
     fetchArticleRecommendation,
-} from 'pages/ArticleDetailsPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations';
-import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slice';
+} from '../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+import { articleDetailsPageReducer } from '../model/slice';
 import {
     ArticleDetailsPageHeader,
-} from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+} from './ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { getArticleCommentsIsLoading } from '../model/selectors/comments';

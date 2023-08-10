@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ProfileCard } from 'entities/Profile';
 import { Country } from 'entities/Country';
+import { ProfileCard } from './ProfileCard';
 
 export default {
     title: 'entities/ProfileCard',

@@ -1,6 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { getProfileData, getProfileError } from 'entities/Profile';
-import { Country } from 'entities/Country';
+import { getProfileError } from './getProfileError';
 
 describe('get profile error', () => {
     test('should return counter value', () => {

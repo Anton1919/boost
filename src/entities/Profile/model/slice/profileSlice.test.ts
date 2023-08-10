@@ -1,4 +1,4 @@
-import { profileActions, profileReducer, ProfileSchema } from 'entities/Profile';
+import { profileActions, profileReducer, ProfileSchema } from '../../index';
 
 describe('profile slice', () => {
     test('set readonly', () => {
