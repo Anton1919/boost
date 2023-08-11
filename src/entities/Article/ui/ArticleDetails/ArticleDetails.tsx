@@ -1,5 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
@@ -25,8 +28,8 @@ import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {
-    className?: string
-    id?: string
+    className?: string;
+    id?: string;
 }
 
 const reducers: ReducersList = {
@@ -42,14 +45,24 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
 
     const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
-        case ArticleBlockType.CODE:
-            return <ArticleCodeBlockComponent className={cls.block} key={block.id} block={block} />;
-        case ArticleBlockType.IMAGE:
-            return <ArticleImageBlockComponent className={cls.block} key={block.id} block={block} />;
-        case ArticleBlockType.TEXT:
-            return <ArticleTextBlockComponent className={cls.block} key={block.id} block={block} />;
-        default:
-            return null;
+            case ArticleBlockType.CODE:
+                return (
+                    <ArticleCodeBlockComponent className={cls.block} key={block.id} block={block} />
+                );
+            case ArticleBlockType.IMAGE:
+                return (
+                    <ArticleImageBlockComponent
+                        className={cls.block}
+                        key={block.id}
+                        block={block}
+                    />
+                );
+            case ArticleBlockType.TEXT:
+                return (
+                    <ArticleTextBlockComponent className={cls.block} key={block.id} block={block} />
+                );
+            default:
+                return null;
         }
     }, []);
 
@@ -70,16 +83,19 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
             </>
         );
     } else if (error) {
-        content = (
-            <Text align={TextAlign.CENTER} title={t('Произошла непредвиденная ошибка')} />
-        );
+        content = <Text align={TextAlign.CENTER} title={t('Произошла непредвиденная ошибка')} />;
     } else {
         content = (
             <>
                 <div className={cls.avatarWrapper}>
                     <Avatar size={200} src={article?.img} className={cls.avatar} />
                 </div>
-                <Text className={cls.title} size={TextSize.L} title={article?.title} text={article?.subtitle} />
+                <Text
+                    className={cls.title}
+                    size={TextSize.L}
+                    title={article?.title}
+                    text={article?.subtitle}
+                />
                 <div className={cls.articleInfo}>
                     <Icon Svg={EyeIcon} className={cls.icon} />
                     <Text text={String(article?.views)} />
@@ -95,9 +111,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames(cls.ArticleDetails, {}, [className])}>
-                {content}
-            </div>
+            <div className={classNames(cls.ArticleDetails, {}, [className])}>{content}</div>
         </DynamicModuleLoader>
     );
 });

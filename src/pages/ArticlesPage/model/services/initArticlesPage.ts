@@ -33,7 +33,7 @@ export const initArticlesPage = createAsyncThunk<void, URLSearchParams, ThunkCon
             }
 
             dispatch(articlesPageActions.initState());
-            dispatch(fetchArticlesList({ }));
+            dispatch(fetchArticlesList({}));
         }
     },
 );

@@ -10,27 +10,22 @@ import { Article, ArticleView } from '../../model/types/article';
 import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {
-    className?: string
-    articles: Article[]
-    isLoading?: boolean
-    view?: ArticleView
-    target?: HTMLAttributeAnchorTarget
+    className?: string;
+    articles: Article[];
+    isLoading?: boolean;
+    view?: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
 }
 
-const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
-    .fill(0)
-    .map((item, index) => (
-        <ArticleListItemSkeleton className={cls.card} key={index} view={view} />
-    ));
+const getSkeletons = (view: ArticleView) =>
+    new Array(view === ArticleView.SMALL ? 9 : 3)
+        .fill(0)
+        .map((item, index) => (
+            <ArticleListItemSkeleton className={cls.card} key={index} view={view} />
+        ));
 
 export const ArticleList = (props: ArticleListProps) => {
-    const {
-        articles,
-        className,
-        view = ArticleView.SMALL,
-        isLoading,
-        target,
-    } = props;
+    const { articles, className, view = ArticleView.SMALL, isLoading, target } = props;
 
     const { t } = useTranslation();
 
@@ -73,12 +68,8 @@ export const ArticleList = (props: ArticleListProps) => {
     }
 
     return (
-        <WindowScroller
-            scrollElement={document.getElementById(PAGE_ID) as Element}
-        >
-            {({
-                width, height, registerChild, onChildScroll, isScrolling, scrollTop,
-            }) => (
+        <WindowScroller scrollElement={document.getElementById(PAGE_ID) as Element}>
+            {({ width, height, registerChild, onChildScroll, isScrolling, scrollTop }) => (
                 <div
                     ref={registerChild}
                     className={classNames(cls.ArticleList, {}, [className, cls[view]])}
@@ -94,7 +85,7 @@ export const ArticleList = (props: ArticleListProps) => {
                         isScrolling={isScrolling}
                         scrollTop={scrollTop}
                     />
-                    { isLoading && getSkeletons(view)}
+                    {isLoading && getSkeletons(view)}
                 </div>
             )}
         </WindowScroller>

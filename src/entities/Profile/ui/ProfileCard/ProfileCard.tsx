@@ -13,18 +13,18 @@ import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
     className?: string;
-    data?: Profile
-    error?: string
-    isLoading?: boolean
-    readonly?: boolean
-    onChangeLastname?: (value: string) => void
-    onChangeFirstname?: (value: string) => void
-    onChangeAge?: (value: string) => void
-    onChangeCity?: (value: string) => void
-    onChangeUsername?: (value: string) => void
-    onChangeAvatar?: (value: string) => void
-    onChangeCurrency?: (value: Currency) => void
-    onChangeCountry?: (value: Country) => void
+    data?: Profile;
+    error?: string;
+    isLoading?: boolean;
+    readonly?: boolean;
+    onChangeLastname?: (value: string) => void;
+    onChangeFirstname?: (value: string) => void;
+    onChangeAge?: (value: string) => void;
+    onChangeCity?: (value: string) => void;
+    onChangeUsername?: (value: string) => void;
+    onChangeAvatar?: (value: string) => void;
+    onChangeCurrency?: (value: Currency) => void;
+    onChangeCountry?: (value: Country) => void;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -48,7 +48,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (isLoading) {
         return (
-            <HStack justify="center" max className={classNames(cls.ProfileCard, { [cls.loading]: true }, [className])}>
+            <HStack
+                justify="center"
+                max
+                className={classNames(cls.ProfileCard, { [cls.loading]: true }, [className])}
+            >
                 <Loader />
             </HStack>
         );
@@ -56,7 +60,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (error) {
         return (
-            <HStack justify="center" max className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
+            <HStack
+                justify="center"
+                max
+                className={classNames(cls.ProfileCard, {}, [className, cls.error])}
+            >
                 <Text
                     theme={TextTheme.ERROR}
                     title={t('Произошла непредвиденная ошибка')}
@@ -67,7 +75,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         );
     }
 
-    const mods:Mods = {
+    const mods: Mods = {
         [cls.editing]: !readonly,
     };
 

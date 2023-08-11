@@ -3,19 +3,14 @@ import { CSSProperties } from 'react';
 import cls from './Skeleton.module.scss';
 
 interface SkeletonProps {
-    className?: string
-    height?: string | number
-    width?: string | number
-    border?: string
+    className?: string;
+    height?: string | number;
+    width?: string | number;
+    border?: string;
 }
 
 export const Skeleton = (props: SkeletonProps) => {
-    const {
-        className,
-        border,
-        height,
-        width,
-    } = props;
+    const { className, border, height, width } = props;
 
     const styles: CSSProperties = {
         height,
@@ -23,10 +18,5 @@ export const Skeleton = (props: SkeletonProps) => {
         borderRadius: border,
     };
 
-    return (
-        <div
-            style={styles}
-            className={classNames(cls.Skeleton, {}, [className])}
-        />
-    );
+    return <div style={styles} className={classNames(cls.Skeleton, {}, [className])} />;
 };

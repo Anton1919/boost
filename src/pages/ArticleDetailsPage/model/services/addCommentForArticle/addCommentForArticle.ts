@@ -3,16 +3,12 @@ import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Comment } from 'entities/Comment';
 import { getUserAuthData } from 'entities/User';
 import { getArticleDetailsData } from 'entities/Article/model/selectors/articleDetails';
-import {
-    fetchCommentsByArticleId,
-} from '../../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { fetchCommentsByArticleId } from '../../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 
 export const addCommentForArticle = createAsyncThunk<Comment, string, ThunkConfig<string>>(
     'articleDetails/addCommentForArticle',
     async (text, thunkApi) => {
-        const {
-            extra, dispatch, rejectWithValue, getState,
-        } = thunkApi;
+        const { extra, dispatch, rejectWithValue, getState } = thunkApi;
 
         const userData = getUserAuthData(getState());
         const article = getArticleDetailsData(getState());

@@ -4,17 +4,17 @@ import { useParams } from 'react-router-dom';
 import { Page } from '../../../widgets/Page/Page';
 
 interface ArticleEditPageProps {
-    className?: string
+    className?: string;
 }
 
 const ArticleEditPage = ({ className }: ArticleEditPageProps) => {
     const { t } = useTranslation();
-    const { id } = useParams<{id: string}>();
+    const { id } = useParams<{ id: string }>();
     const isEdit = !!id;
 
     return (
         <Page className={classNames('', {}, [className])}>
-            {isEdit ? `Редактировать статью с ID:  ${id}` : 'Создать новую статью' }
+            {isEdit ? `Редактировать статью с ID:  ${id}` : 'Создать новую статью'}
         </Page>
     );
 };

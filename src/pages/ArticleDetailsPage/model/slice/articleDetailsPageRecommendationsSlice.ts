@@ -1,19 +1,16 @@
-import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Article } from 'entities/Article';
-import {
-    ArticleDetailsRecommendationSchema,
-} from '../../model/types/ArticleDetailsRecommendationSchema';
-import {
-    fetchArticleRecommendation,
-} from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+import { ArticleDetailsRecommendationSchema } from '../../model/types/ArticleDetailsRecommendationSchema';
+import { fetchArticleRecommendation } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 
 const recommendationsAdapter = createEntityAdapter<Article>({
     selectId: (article) => article.id,
 });
 
 export const getArticleRecommendations = recommendationsAdapter.getSelectors<StateSchema>(
-    (state) => state.articleDetailsPage?.recommendations || recommendationsAdapter.getInitialState(),
+    (state) =>
+        state.articleDetailsPage?.recommendations || recommendationsAdapter.getInitialState(),
 );
 
 const articleDetailsPageRecommendationSlice = createSlice({
@@ -31,10 +28,7 @@ const articleDetailsPageRecommendationSlice = createSlice({
                 state.error = undefined;
                 state.isLoading = true;
             })
-            .addCase(fetchArticleRecommendation.fulfilled, (
-                state,
-                action,
-            ) => {
+            .addCase(fetchArticleRecommendation.fulfilled, (state, action) => {
                 state.isLoading = false;
                 recommendationsAdapter.setAll(state, action.payload);
             })
@@ -45,4 +39,5 @@ const articleDetailsPageRecommendationSlice = createSlice({
     },
 });
 
-export const { reducer: articleDetailsPageRecommendationReducer } = articleDetailsPageRecommendationSlice;
+export const { reducer: articleDetailsPageRecommendationReducer } =
+    articleDetailsPageRecommendationSlice;

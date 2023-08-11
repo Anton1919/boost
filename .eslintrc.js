@@ -4,11 +4,7 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: [
-        'plugin:react/recommended',
-        'airbnb',
-        'plugin:i18next/recommended',
-    ],
+    extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended', 'prettier'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -17,21 +13,9 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: [
-        'react',
-        '@typescript-eslint',
-        'i18next',
-        'react-hooks',
-        'ulbi-tv-plugin',
-    ],
+    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'ulbi-tv-plugin'],
     rules: {
-        'react/jsx-indent': [2, 4],
-        'react/jsx-indent-props': [2, 4],
-        indent: [2, 4],
-        'react/jsx-filename-extension': [
-            2,
-            { extensions: ['.js', '.jsx', '.tsx'] },
-        ],
+        'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
         'no-unused-vars': 'off',
@@ -47,17 +31,9 @@ module.exports = {
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: [
-                    'data-testid',
-                    'to',
-                    'justify',
-                    'align',
-                    'direction',
-                    'role',
-                    'gap'],
+                ignoreAttribute: ['data-testid', 'to', 'justify', 'align', 'direction', 'role', 'gap'],
             },
         ],
-        'max-len': ['error', { ignoreComments: true, code: 120 }],
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
@@ -66,6 +42,7 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'ulbi-tv-plugin/path-checker': 'error',
+        'react/jsx-max-props-per-line': ['error', { maximum: 3, when: 'multiline' }],
     },
     globals: {
         __IS_DEV__: true,

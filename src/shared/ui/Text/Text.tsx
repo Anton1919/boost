@@ -25,11 +25,11 @@ interface TextProps {
     title?: string;
     text?: string;
     theme?: TextTheme;
-    align?: TextAlign
-    size?: TextSize
+    align?: TextAlign;
+    size?: TextSize;
 }
 
-type HeaderTagType = 'h1' | 'h2' | 'h3'
+type HeaderTagType = 'h1' | 'h2' | 'h3';
 
 const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
     [TextSize.S]: 'h3',

@@ -1,5 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
     fetchProfileData,
     getProfileError,
@@ -38,7 +41,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateErrors);
-    const { id } = useParams<{id: string}>();
+    const { id } = useParams<{ id: string }>();
 
     useInitialEffect(() => {
         if (id) {
@@ -46,45 +49,71 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         }
     });
 
-    const onChangeFirstname = useCallback((value: string) => {
-        dispatch(profileActions.updateProfile({ first: value || '' }));
-    }, [dispatch]);
+    const onChangeFirstname = useCallback(
+        (value: string) => {
+            dispatch(profileActions.updateProfile({ first: value || '' }));
+        },
+        [dispatch],
+    );
 
-    const onChangeLastname = useCallback((value: string) => {
-        dispatch(profileActions.updateProfile({ lastname: value || '' }));
-    }, [dispatch]);
+    const onChangeLastname = useCallback(
+        (value: string) => {
+            dispatch(profileActions.updateProfile({ lastname: value || '' }));
+        },
+        [dispatch],
+    );
 
-    const onChangeCity = useCallback((value: string) => {
-        dispatch(profileActions.updateProfile({ city: value || '' }));
-    }, [dispatch]);
+    const onChangeCity = useCallback(
+        (value: string) => {
+            dispatch(profileActions.updateProfile({ city: value || '' }));
+        },
+        [dispatch],
+    );
 
-    const onChangeAge = useCallback((value: string) => {
-        dispatch(profileActions.updateProfile({ age: Number(value) || 0 }));
-    }, [dispatch]);
+    const onChangeAge = useCallback(
+        (value: string) => {
+            dispatch(profileActions.updateProfile({ age: Number(value) || 0 }));
+        },
+        [dispatch],
+    );
 
-    const onChangeAvatar = useCallback((value: string) => {
-        dispatch(profileActions.updateProfile({ avatar: value || '' }));
-    }, [dispatch]);
+    const onChangeAvatar = useCallback(
+        (value: string) => {
+            dispatch(profileActions.updateProfile({ avatar: value || '' }));
+        },
+        [dispatch],
+    );
 
-    const onChangeUsername = useCallback((value: string) => {
-        dispatch(profileActions.updateProfile({ username: value || '' }));
-    }, [dispatch]);
+    const onChangeUsername = useCallback(
+        (value: string) => {
+            dispatch(profileActions.updateProfile({ username: value || '' }));
+        },
+        [dispatch],
+    );
 
-    const onChangeCurrency = useCallback((value: Currency) => {
-        dispatch(profileActions.updateProfile({ currency: value }));
-    }, [dispatch]);
+    const onChangeCurrency = useCallback(
+        (value: Currency) => {
+            dispatch(profileActions.updateProfile({ currency: value }));
+        },
+        [dispatch],
+    );
 
-    const onChangeCountry = useCallback((value: Country) => {
-        dispatch(profileActions.updateProfile({ country: value }));
-    }, [dispatch]);
+    const onChangeCountry = useCallback(
+        (value: Country) => {
+            dispatch(profileActions.updateProfile({ country: value }));
+        },
+        [dispatch],
+    );
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames('', {}, [className])}>
                 <VStack gap="16" max>
                     <ProfilePageHeader />
-                    {validateErrors?.length
-                        && validateErrors.map((err) => <Text key={err} theme={TextTheme.ERROR} text={err} />)}
+                    {validateErrors?.length &&
+                        validateErrors.map((err) => (
+                            <Text key={err} theme={TextTheme.ERROR} text={err} />
+                        ))}
                     <ProfileCard
                         data={formData}
                         isLoading={isLoading}

@@ -12,28 +12,33 @@ import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
 import {
-    Article, ArticleBlockType, ArticleTextBlock, ArticleView,
+    Article,
+    ArticleBlockType,
+    ArticleTextBlock,
+    ArticleView,
 } from '../../model/types/article';
 
 interface ArticleListItemProps {
-    className?: string
-    article: Article
-    view: ArticleView
-    target?: HTMLAttributeAnchorTarget
+    className?: string;
+    article: Article;
+    view: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
 }
 
-export const ArticleListItem = (props : ArticleListItemProps) => {
-    const {
-        view, article, className, target,
-    } = props;
+export const ArticleListItem = (props: ArticleListItemProps) => {
+    const { view, article, className, target } = props;
     const [isHover, bindHover] = useHover();
 
     if (view === ArticleView.BIG) {
-        const textBlock = article.blocks
-            .find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
+        const textBlock = article.blocks.find(
+            (block) => block.type === ArticleBlockType.TEXT,
+        ) as ArticleTextBlock;
 
         return (
-            <div {...bindHover} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+            <div
+                {...bindHover}
+                className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+            >
                 <Card>
                     <div className={cls.header}>
                         <Avatar size={30} src={article.user.avatar} />
@@ -43,13 +48,13 @@ export const ArticleListItem = (props : ArticleListItemProps) => {
                     <Text title={article.title} className={cls.title} />
                     <Text className={cls.types} text={article.type.join(', ')} />
                     <img src={article.img} alt={article.title} className={cls.img} />
-                    {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />}
+                    {textBlock && (
+                        <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
+                    )}
                     <div className={cls.footer}>
                         <AppLink target={target} to={RoutePath.article_details + article.id}>
                             {/* eslint-disable-next-line i18next/no-literal-string */}
-                            <Button theme={ButtonTheme.OUTLINE}>
-                                Читать далее...
-                            </Button>
+                            <Button theme={ButtonTheme.OUTLINE}>Читать далее...</Button>
                         </AppLink>
                         {/* eslint-disable-next-line i18next/no-literal-string */}
                         <Text className={cls.views} text={article.views.toString()} />

@@ -1,7 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import {
-    memo, MutableRefObject, ReactNode, UIEvent, useRef,
-} from 'react';
+import { memo, MutableRefObject, ReactNode, UIEvent, useRef } from 'react';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { uiActions } from 'features/UI/model/slices/UISlice';
@@ -14,9 +12,9 @@ import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
 import cls from './Page.module.scss';
 
 interface PageProps {
-    className?: string
-    children: ReactNode
-    onScrollEnd?: () => void
+    className?: string;
+    children: ReactNode;
+    onScrollEnd?: () => void;
 }
 
 export const PAGE_ID = 'PAGE_ID';
@@ -39,10 +37,12 @@ export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
     });
 
     const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-        dispatch(uiActions.setScrollPosition({
-            path: pathname,
-            position: e.currentTarget.scrollTop,
-        }));
+        dispatch(
+            uiActions.setScrollPosition({
+                path: pathname,
+                position: e.currentTarget.scrollTop,
+            }),
+        );
     }, 500);
 
     return (

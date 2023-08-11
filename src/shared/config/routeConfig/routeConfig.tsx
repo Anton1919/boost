@@ -8,8 +8,8 @@ import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
 import { ArticleEditPage } from 'pages/ArticleEditPage';
 
 export type AppRouterProps = RouteProps & {
-    authOnly?: boolean
-}
+    authOnly?: boolean;
+};
 
 export enum AppRoutes {
     MAIN = 'main',
