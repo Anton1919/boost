@@ -1,5 +1,5 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { ButtonHTMLAttributes, FC, memo, ReactNode } from 'react';
+import { ButtonHTMLAttributes, FC, ForwardedRef, forwardRef, memo, ReactNode } from 'react';
 import cls from './Button.module.scss';
 
 export enum ButtonTheme {
@@ -26,7 +26,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children?: ReactNode;
 }
 
-export const Button = memo((props: ButtonProps) => {
+export const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
     const {
         className,
         children,
@@ -46,6 +46,7 @@ export const Button = memo((props: ButtonProps) => {
 
     return (
         <button
+            ref={ref}
             type="button"
             className={classNames(cls.Button, mods, [className])}
             disabled={disabled}
