@@ -1,3 +1,4 @@
+import React, { useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
@@ -7,9 +8,8 @@ import {
     getProfileData, getProfileReadonly, profileActions, updateProfileData,
 } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useCallback } from 'react';
 import { getUserAuthData } from 'entities/User';
-import cls from './ProfilePageHeader.module.scss';
+import { HStack } from 'shared/ui/Stack/HStack/HStack';
 
 interface ProfilePageHeaderProps {
     className?: string
@@ -37,14 +37,13 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
     }, [dispatch]);
 
     return (
-        <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
+        <HStack max justify="between" className={classNames('', {}, [className])}>
             <Text title={t('Профиль')} />
             {canEdit && (
-                <div className={cls.btnsWrapper}>
+                <div>
                     {readonly
                         ? (
                             <Button
-                                className={cls.editBtn}
                                 theme={ButtonTheme.OUTLINE}
                                 onClick={onEdit}
                             >
@@ -52,9 +51,8 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
                             </Button>
                         )
                         : (
-                            <div className={cls.btnWrapper}>
+                            <HStack gap="8">
                                 <Button
-                                    className={cls.saveBtn}
                                     theme={ButtonTheme.OUTLINE}
                                     onClick={onSave}
                                 >
@@ -62,16 +60,15 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
                                 </Button>
 
                                 <Button
-                                    className={cls.editBtn}
                                     theme={ButtonTheme.OUTLINE_RED}
                                     onClick={onCancelEdit}
                                 >
                                     {t('Отменить')}
                                 </Button>
-                            </div>
+                            </HStack>
                         )}
                 </div>
             )}
-        </div>
+        </HStack>
     );
 };
