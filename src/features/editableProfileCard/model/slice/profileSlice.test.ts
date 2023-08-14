@@ -1,4 +1,5 @@
-import { profileActions, profileReducer, ProfileSchema } from '../../index';
+import { ProfileSchema } from '../types/editableProfileCardSchema';
+import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 
 describe('profile slice', () => {
     test('set readonly', () => {
