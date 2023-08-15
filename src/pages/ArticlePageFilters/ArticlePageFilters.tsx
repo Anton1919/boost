@@ -1,6 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
     ArticleSortField,
+    ArticleType,
     ArticleTypeTabs,
     ArticleView,
     ArticleViewSelector,
@@ -22,7 +23,6 @@ import { ArticleSortSelect } from 'entities/Article/ui/ArticleSortSelect/Article
 import { SortOrder } from 'shared/types';
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
-import { ArticleType } from 'entities/Article/model/types/article';
 import { articlesPageActions } from '../ArticlesPage/model/slice/articlePageSlice';
 import cls from './ArticlePageFilters.module.scss';
 

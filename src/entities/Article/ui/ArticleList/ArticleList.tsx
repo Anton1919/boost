@@ -4,9 +4,10 @@ import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget } from 'react';
 import { List, ListRowProps, WindowScroller } from 'react-virtualized';
 import { PAGE_ID } from 'widgets/Page/Page';
+import { ArticleView } from '../../model/const/const';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
-import { Article, ArticleView } from '../../model/types/article';
+import { Article } from '../../model/types/article';
 import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {
