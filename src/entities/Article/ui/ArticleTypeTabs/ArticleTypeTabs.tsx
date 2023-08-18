@@ -1,8 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useCallback, useMemo } from 'react';
-import { SelectOption } from 'shared/ui/Select/Select';
 import { useTranslation } from 'react-i18next';
-import { Tabs, TabsItem } from 'shared/ui/Tabs/Tabs';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { SelectOption } from '@/shared/ui/Select/Select';
+import { Tabs, TabsItem } from '@/shared/ui/Tabs/Tabs';
 import { ArticleType } from '../../model/const/const';
 
 interface ArticleTypeTabsProps {
