@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Input } from '@/shared/ui/Input/Input';
+import { RatingCard } from '@/entities/Rating';
 
 const MainPage = () => {
     const { t } = useTranslation();
@@ -10,7 +10,16 @@ const MainPage = () => {
         setValue(val);
     };
 
-    return <div>{t('Главная страница')}</div>;
+    return (
+        <div>
+            {t('Главная страница')}
+            <RatingCard
+                title={t('Как вам статья?')}
+                feedbackTitle={t('Оставьте отзыв')}
+                hasFeedback
+            />
+        </div>
+    );
 };
 
 export default MainPage;

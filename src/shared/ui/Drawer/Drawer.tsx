@@ -97,6 +97,6 @@ const DrawerAsync = (props: DrawerProps) => {
 
 export const Drawer = (props: DrawerProps) => (
     <AnimationProvider>
-        <DrawerAsync {...props} />;
+        <DrawerAsync {...props} />
     </AnimationProvider>
 );
