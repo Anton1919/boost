@@ -54,6 +54,13 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'react/jsx-max-props-per-line': ['error', { maximum: 3, when: 'multiline' }],
         'ulbi-tv-plugin/path-checker': ['error', { alias: '@' }],
+        'ulbi-tv-plugin/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
         'ulbi-tv-plugin/public-api-imports': [
             'error',
             {
