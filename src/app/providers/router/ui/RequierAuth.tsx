@@ -1,10 +1,8 @@
 import { Navigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { FC, memo, useMemo } from 'react';
-import { use } from 'i18next';
-import { getUserAuthData, getUserRoles } from '@/entities/User';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
-import { UserRole } from '@/entities/User/model/const/const';
+import { FC, useMemo } from 'react';
+import { getUserAuthData, getUserRoles, UserRole } from '@/entities/User';
+import { RoutePath } from '@/shared/const/router';
 
 interface IRequireAuth {
     roles?: UserRole[];

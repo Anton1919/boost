@@ -4,7 +4,9 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+// eslint-disable-next-line ulbi-tv-plugin/public-api-imports
 import { uiActions } from '@/features/UI/model/slices/UISlice';
+// eslint-disable-next-line ulbi-tv-plugin/public-api-imports
 import { getUIScrollByPath } from '@/features/UI/model/selectors/ui';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { StateSchema } from '@/app/providers/StoreProvider';

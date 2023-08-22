@@ -7,8 +7,8 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Page } from '@/widgets/Page/Page';
-import { ArticlePageFilters } from '@/pages/ArticlePageFilters/ArticlePageFilters';
+import { Page } from '@/widgets/Page';
+import { ArticlePageFilters } from '@/pages/ArticlePageFilters';
 import { ArticleInfiniteList } from './ArticleInfiniteList/ArticleInfiniteList';
 import { initArticlesPage } from '../model/services/initArticlesPage';
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage';
