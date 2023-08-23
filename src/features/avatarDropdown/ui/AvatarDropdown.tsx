@@ -2,7 +2,7 @@ import React, { useCallback, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Dropdown } from '@/shared/ui/Popus';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Avatar } from '@/shared/ui/Avatar';
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
 import { RoutePath } from '@/shared/const/router';
 
