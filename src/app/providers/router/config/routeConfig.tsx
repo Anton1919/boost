@@ -1,4 +1,3 @@
-import { MainPage } from '@/pages/MainPage';
 import { AboutPage } from '@/pages/AboutPage';
 import { ProfilePage } from '@/pages/ProfilePage';
 import { ArticlePage } from '@/pages/ArticlesPage';
@@ -10,6 +9,7 @@ import { UserRole } from '@/entities/User';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { AppRoutes, RoutePath } from '@/shared/const/router';
 import { AppRouterProps } from '@/shared/types/router';
+import { MainPage } from '@/pages/MainPage';
 
 export const routeConfig: Record<AppRoutes, AppRouterProps> = {
     [AppRoutes.MAIN]: {
