@@ -724,6 +724,15 @@
         "MANAGER"
       ],
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    },
+    {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "roles": [
+        "ADMIN"
+      ],
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
   "profile": [
@@ -792,26 +801,6 @@
       "rate": 3,
       "feedback": "",
       "id": "bcPnbbZ"
-    },
-    {
-      "rate": 2,
-      "articleId": "4",
-      "userId": "1",
-      "feedback": "",
-      "id": "OAguAT4"
-    },
-    {
-      "rate": 3,
-      "articleId": "5",
-      "userId": "1",
-      "id": "i9GXfBE"
-    },
-    {
-      "rate": 5,
-      "articleId": "6",
-      "userId": "1",
-      "feedback": "good article",
-      "id": "ofl5pwV"
     }
   ],
   "profile-ratings": [
