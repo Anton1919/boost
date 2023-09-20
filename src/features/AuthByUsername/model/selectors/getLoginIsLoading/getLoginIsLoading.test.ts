@@ -1,7 +1,7 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { getLoginIsLoading } from './getLoginIsLoading';
 
-describe('login error', () => {
+describe('common error', () => {
     test('loading true', () => {
         const state: DeepPartial<StateSchema> = {
             loginForm: {

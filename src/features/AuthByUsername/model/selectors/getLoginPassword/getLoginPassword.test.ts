@@ -1,7 +1,7 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { getLoginPassword } from './getLoginPassword';
 
-describe('login error', () => {
+describe('common error', () => {
     test('password exist', () => {
         const state: DeepPartial<StateSchema> = {
             loginForm: {

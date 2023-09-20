@@ -48,14 +48,20 @@ const AddCommentForm = ({ className, onSendComment }: AddCommentFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducer} removeAfterUnmount>
-            <div className={classNames(cls.AddCommentForm, {}, [className])}>
+            <div
+                data-testid="AddCommentForm"
+                className={classNames(cls.AddCommentForm, {}, [className])}
+            >
                 <Input
+                    data-testid="AddCommentForm.Input"
                     className={cls.input}
                     placeholder={t('Введите текст')}
                     value={text}
                     onChange={onCommentTextChange}
                 />
-                <Button onClick={onSendHandler}>{t('Добавить комментарий')}</Button>
+                <Button data-testid="AddCommentForm.Button" onClick={onSendHandler}>
+                    {t('Добавить комментарий')}
+                </Button>
             </div>
         </DynamicModuleLoader>
     );

@@ -12,7 +12,7 @@ const data = {
 };
 
 describe('fetch profile data', () => {
-    test('success login', async () => {
+    test('success common', async () => {
         const thunk = new TestAsyncThunk(fetchProfileData);
         thunk.api.get.mockReturnValue(Promise.resolve({ data }));
         const result = await thunk.callThunk('1');

@@ -1,7 +1,7 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { getLoginUsername } from './getLoginUsername';
 
-describe('login error', () => {
+describe('common error', () => {
     test('username exist', () => {
         const state: DeepPartial<StateSchema> = {
             loginForm: {

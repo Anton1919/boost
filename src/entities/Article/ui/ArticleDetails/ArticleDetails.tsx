@@ -92,20 +92,23 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
                 <div className={cls.avatarWrapper}>
                     <Avatar size={200} src={article?.img} className={cls.avatar} />
                 </div>
-                <Text
-                    className={cls.title}
-                    size={TextSize.L}
-                    title={article?.title}
-                    text={article?.subtitle}
-                />
-                <div className={cls.articleInfo}>
-                    <Icon Svg={EyeIcon} className={cls.icon} />
-                    <Text text={String(article?.views)} />
-                </div>
-                <div className={cls.articleInfo}>
-                    <Icon Svg={CalendarIcon} className={cls.icon} />
-                    <Text text={article?.createdAt} />
-                </div>
+                <VStack gap="4" max data-testid="ArticleDetails.Info">
+                    <Text
+                        className={cls.title}
+                        size={TextSize.L}
+                        title={article?.title}
+                        text={article?.subtitle}
+                    />
+                    <div className={cls.articleInfo}>
+                        <Icon Svg={EyeIcon} className={cls.icon} />
+                        <Text text={String(article?.views)} />
+                    </div>
+                    <div className={cls.articleInfo}>
+                        <Icon Svg={CalendarIcon} className={cls.icon} />
+                        <Text text={article?.createdAt} />
+                    </div>
+                </VStack>
+
                 {article?.blocks.map(renderBlock)}
             </>
         );

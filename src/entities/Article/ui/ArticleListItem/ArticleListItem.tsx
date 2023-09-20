@@ -34,8 +34,9 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
 
         return (
             <div
-                {...bindHover}
+                data-testid="ArticleListItem"
                 className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+                {...bindHover}
             >
                 <Card>
                     <div className={cls.header}>
@@ -70,6 +71,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
 
     return (
         <AppLink
+            data-testid="ArticleListItem"
             target={target}
             to={RoutePath.article_details + article.id}
             {...bindHover}

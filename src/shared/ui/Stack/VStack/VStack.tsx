@@ -1,4 +1,4 @@
-import { Omit } from 'react-redux';
+import Omit from 'react-redux';
 import { Flex, FlexProps } from '../Flex/Flex';
 
 type VStackProps = Omit<FlexProps, 'direction'>;
