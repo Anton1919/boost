@@ -25,11 +25,13 @@ export const ArticleDetailsComments = ({ className, id }: ArticleDetailsComments
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
     useInitialEffect(() => {
+        // @ts-ignore
         dispatch(fetchCommentsByArticleId(id));
     });
 
     const onSendComment = useCallback(
         (text: string) => {
+            // @ts-ignore
             dispatch(addCommentForArticle(text));
         },
         [dispatch],
