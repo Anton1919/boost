@@ -1,5 +1,5 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useCallback, Suspense } from 'react';
+import { useSelector } from 'react-redux';
+import { Suspense, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text, TextSize } from '@/shared/ui/Text';
@@ -12,6 +12,7 @@ import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByAr
 import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 interface ArticleDetailsCommentsProps {
     className?: string;
@@ -20,18 +21,16 @@ interface ArticleDetailsCommentsProps {
 
 export const ArticleDetailsComments = ({ className, id }: ArticleDetailsCommentsProps) => {
     const { t } = useTranslation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const comments = useSelector(getArticleComments.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
     useInitialEffect(() => {
-        // @ts-ignore
         dispatch(fetchCommentsByArticleId(id));
     });
 
     const onSendComment = useCallback(
         (text: string) => {
-            // @ts-ignore
             dispatch(addCommentForArticle(text));
         },
         [dispatch],
